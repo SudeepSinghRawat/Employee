@@ -17,4 +17,13 @@ export class EmployeeServiceService {
   public getAllEmplyee(): Employee[] {
     return this.employee;
   }
+
+  public getEmploye(id: Number): Employee {
+    for( let i =0; i<this.employee.length;i++){
+      if(this.employee[i].id  == id){
+        return this.employee[i];
+      }
+    }
+    return null;
+  }
 }

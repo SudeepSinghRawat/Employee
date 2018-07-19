@@ -1,55 +1,86 @@
 <div class="container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">EmpId</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Salary</th>
-        <th scope="col">DOB</th>
-        <th scope="col">Hometown</th>
-        <th scope="col">About</th>
-
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let employe of  employee">
-        <th scope="row">{{employe.empId}}</th>
-        <td>{{employe.name}}</td>
-        <td>{{employe.email}}</td>
-        <td>{{employe.salary}}</td>
-        <td>{{employe.dob}}</td>
-        <td>{{employe.hometown}}</td>
-        <td>{{employe.about}}</td>
-        <td>
-          <div data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-link" (click) ="employeeClick()">
-            view 
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+  <div class="row">
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Example select</label>
+        <select class="form-control" name="empid" [(ngModel)]="empid">
+          <option *ngFor="let employe of  employee" value="{{employe.id}}">{{employe.empId}}</option>
+        </select>
       </div>
-    </div>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="employeeClick()">View</button>
+    </form>
   </div>
 
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group row">
+            <label for="empId" class="col-sm-2 col-form-label">Emp Id</label>
+            <div class="col-sm-10">
+                {{employe.empId}}
+              
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                {{employe.name}}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="emailID" class="col-sm-2 col-form-label">Email Id </label>
+            <div class="col-sm-10">
+                {{employe.email}}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="emailID" class="col-sm-2 col-form-label">Salary </label>
+            <div class="col-sm-10">
+                {{employe.salary}}
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="dob" class="col-sm-2 col-form-label">Date of Birth </label>
+            <div class="col-sm-10">
+                {{employe.dob}}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="Hometown" class="col-sm-2 col-form-label">Hometown </label>
+            <div class="col-sm-10">
+                {{employe.hometown}}
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="About" class="col-sm-2 col-form-label">About </label>
+            <div class="col-sm-10">
+                {{employe.about}}
+            </div>
+          </div>
+
+
+
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Edit</button>
+      </div>
+    </div>
+  </div> 
+
+  </div>
