@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { EmployeeServiceService } from './services/employee-service.service';
 import { Employee } from './model/employee';
-declare var jquery:any;
-declare var $ :any;
+declare var jquery: any;
+declare var $: any;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,9 +10,9 @@ declare var $ :any;
 })
 export class AppComponent {
   title = 'app';
-  empid : Number;
+  empid: Number;
   employee: Employee[];
-  employe : Employee;
+  employe: Employee;
   constructor(private serice: EmployeeServiceService) {
     this.employee = serice.getAllEmplyee();
     console.log(JSON.stringify(this.employee));
@@ -21,5 +21,10 @@ export class AppComponent {
 
     this.employe = this.serice.getEmploye(this.empid);
     $('#exampleModal').modal('show');
+  }
+  public editModel() {
+    console.log('im here');
+    $('#exampleModal').modal('hide');
+    $('#empEdit').modal('show');
   }
 }

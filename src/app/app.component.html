@@ -13,74 +13,152 @@
 
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group row">
-            <label for="empId" class="col-sm-2 col-form-label">Emp Id</label>
-            <div class="col-sm-10">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label for="empId" class="col-sm-2 col-form-label">Emp Id</label>
+              <div class="col-sm-10">
                 {{employe.empId}}
-              
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Name</label>
-            <div class="col-sm-10">
+            <div class="form-group row">
+              <label for="name" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
                 {{employe.name}}
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="emailID" class="col-sm-2 col-form-label">Email Id </label>
-            <div class="col-sm-10">
+            <div class="form-group row">
+              <label for="emailID" class="col-sm-2 col-form-label">Email Id </label>
+              <div class="col-sm-10">
                 {{employe.email}}
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="emailID" class="col-sm-2 col-form-label">Salary </label>
-            <div class="col-sm-10">
+            <div class="form-group row">
+              <label for="emailID" class="col-sm-2 col-form-label">Salary </label>
+              <div class="col-sm-10">
                 {{employe.salary}}
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="dob" class="col-sm-2 col-form-label">Date of Birth </label>
-            <div class="col-sm-10">
+            <div class="form-group row">
+              <label for="dob" class="col-sm-2 col-form-label">Date of Birth </label>
+              <div class="col-sm-10">
                 {{employe.dob}}
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <label for="Hometown" class="col-sm-2 col-form-label">Hometown </label>
-            <div class="col-sm-10">
+            <div class="form-group row">
+              <label for="Hometown" class="col-sm-2 col-form-label">Hometown </label>
+              <div class="col-sm-10">
                 {{employe.hometown}}
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <label for="About" class="col-sm-2 col-form-label">About </label>
-            <div class="col-sm-10">
+            <div class="form-group row">
+              <label for="About" class="col-sm-2 col-form-label">About </label>
+              <div class="col-sm-10">
                 {{employe.about}}
+              </div>
             </div>
-          </div>
 
 
 
 
 
-        </form>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="editModel()">Edit</button>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Edit</button>
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Modal -->
+    <div class="modal fade" id="empEdit" tabindex="-1" role="dialog" aria-labelledby="empEdit" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="form-group row">
+                <label for="empId" class="col-sm-2 col-form-label">Emp Id</label>
+                <div class="col-sm-10">
+                  {{employe.empId}}
+
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                  {{employe.name}}
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="emailID" class="col-sm-2 col-form-label">Email Id </label>
+                <div class="col-sm-10">
+                  <input type="email" required placeholder="Employye email id" name="emailId" value="{{employe.email}}"/>
+                  
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="emailID" class="col-sm-2 col-form-label">Salary </label>
+                <div class="col-sm-10">
+                    <input type="number" required placeholder="Employye email id" name="emailId" value="{{employe.salary}}"/>
+                  
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="dob" class="col-sm-2 col-form-label">Date of Birth </label>
+                <div class="col-sm-10">
+                  {{employe.dob}}
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="Hometown" class="col-sm-2 col-form-label">Hometown </label>
+                <div class="col-sm-10">
+                    <input type="text" maxlength="15" required placeholder="Employye email id" name="emailId" value="{{employe.hometown}}"/>
+                  
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="About" class="col-sm-2 col-form-label">About </label>
+                <div class="col-sm-10">
+                  <textarea rows ="3" cols="30" placeholder="Emp Desc" value=" {{employe.about}}">
+
+                  </textarea>
+                    
+                </div>
+              </div>
+              <input type="submit" value="Submit">
+            </form>
+          </div>
+          
+        </div>
       </div>
     </div>
-  </div> 
 
   </div>
+
+</div>
